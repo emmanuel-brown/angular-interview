@@ -2,7 +2,7 @@ import express from 'express';
 import path from 'path';
 const app = express();
 
-const distPath = path.join(__dirname, 'dist/YOUR_PROJECT_NAME');
+const distPath = path.join(__dirname, 'dist/my-angular-app');
 
 app.use(express.static(distPath));
 
