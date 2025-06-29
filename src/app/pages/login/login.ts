@@ -22,7 +22,6 @@ export class Login {
   loginForm = new FormGroup({
     firstName: new FormControl('', [Validators.required, Validators.minLength(3)]),
     lastName: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    note: new FormControl('', [Validators.minLength(3)]),
   })
 
   ngAfterViewInit() {
@@ -33,26 +32,25 @@ export class Login {
 
   onSubmit(e: Event) {
     e.preventDefault()
-    console.log('Form submitted:', this.loginForm.value);
     if (!this.loginForm.valid) {
       console.error('Form is invalid')
       return
     }
-      const { firstName, lastName } = this.loginForm.value;
-      if (!firstName || !lastName) {
-        console.error("First name or last name is missing");
-        return;
-      }
-      
-      this.userService.login(firstName, lastName)
-        .subscribe({
-          next: () => {
-            console.log('Login successful');
-            this.router.navigate(['/profile']);
-          },
-          error: (error) => {
-            console.error('Login failed:', error);
-          }
-        })
+    const { firstName, lastName } = this.loginForm.value;
+    if (!firstName || !lastName) {
+      console.error("First name or last name is missing");
+      return;
+    }
+    
+    this.userService.login(firstName, lastName)
+      .subscribe({
+        next: () => {
+          console.log('Login successful');
+          this.router.navigate(['/profile']);
+        },
+        error: (error) => {
+          console.error('Login failed:', error);
+        }
+      })
   }
 }

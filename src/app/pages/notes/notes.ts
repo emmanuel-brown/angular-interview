@@ -16,6 +16,7 @@ export class Notes {
   notes = signal<NoteI[]>([])
   userService = inject(UserService)
   user$ = this.userService.user$;
+  
   ngOnInit() {
     this.userService.getUser();
   }

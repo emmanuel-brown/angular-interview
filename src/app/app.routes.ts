@@ -13,8 +13,8 @@ export const routes: Routes = [
         children: [
             {
                 path:'profile', 
-                component: Profile,
-                canActivate: [authGuard]
+                loadComponent: () => import('./userProfilePage/profile/profile').then(m => m.Profile),
+                // canActivate: [authGuard]
             },
             {
                 path: 'notes',
