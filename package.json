@@ -7,8 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "start": "node dist/my-angular-app/server/server.mjs",
-    "postinstall": "npm install --omit=dev"
+    "start": "node dist/my-angular-app/server/server.mjs"
   },
   "private": true,
   "dependencies": {
